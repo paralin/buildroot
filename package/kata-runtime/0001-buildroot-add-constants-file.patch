@@ -1,0 +1,65 @@
+From 16d2220bd93a5b5ee3807ecf676956af7ed0df9c Mon Sep 17 00:00:00 2001
+From: Christian Stewart <christian@paral.in>
+Date: Thu, 14 Feb 2019 04:21:26 -0800
+Subject: [PATCH 1/2] buildroot: add constants file
+
+Defines constants required during the build usually defined by the project
+Makefile in a format suitable for Buildroot.
+
+Signed-off-by: Christian Stewart <christian@paral.in>
+---
+ cli/buildroot-const.go | 42 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
+ create mode 100644 cli/buildroot-const.go
+
+diff --git a/cli/buildroot-const.go b/cli/buildroot-const.go
+new file mode 100644
+index 0000000..ef1b26d
+--- /dev/null
++++ b/cli/buildroot-const.go
+@@ -0,0 +1,42 @@
++package main
++
++import (
++	"fmt"
++)
++
++// name is the name of the runtime
++const name = "kata-runtime"
++
++// name of the project
++const project = "kata-containers"
++
++// prefix used to denote non-standard CLI commands and options.
++const projectPrefix = "kata"
++
++// original URL for this project
++const projectURL = "https://github.com/kata-containers"
++
++const defaultRootDirectory = "/var/run/kata"
++
++// commit is the git commit the runtime is compiled from.
++// sourced from ldflags
++var commit string
++
++// version is the runtime version.
++// sourced from ldflags
++var version string
++
++// project-specific command names
++var envCmd = fmt.Sprintf("%s-env", projectPrefix)
++var checkCmd = fmt.Sprintf("%s-check", projectPrefix)
++
++// project-specific option names
++var configFilePathOption = fmt.Sprintf("%s-config", projectPrefix)
++var showConfigPathsOption = fmt.Sprintf("%s-show-default-config-paths", projectPrefix)
++
++// Default config file used by stateless systems.
++var defaultRuntimeConfiguration = "/usr/share/kata-containers/configuration.toml"
++
++// Alternate config file that takes precedence over
++// defaultRuntimeConfiguration.
++var defaultSysConfRuntimeConfiguration = "/etc/kata-containers/configuration.toml"
+-- 
+2.19.2
+
