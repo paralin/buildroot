@@ -1,6 +1,6 @@
-# From https://downloads.open-mesh.org/batman/stable/sources/batman-adv/batman-adv-2019.3.tar.gz.{md5,sha1}
-md5  39345688ddf12a542853b2318325f07b         batman-adv-2019.3.tar.gz
-sha1 202539c0cbf4604f6c8e9d427b338d4e807bd220 batman-adv-2019.3.tar.gz
+# From https://downloads.open-mesh.org/batman/stable/sources/batman-adv/batman-adv-2019.5.tar.gz.{md5,sha1}
+md5  7f54f3a777c558c897f1bbfbad618ed7         batman-adv-2019.5.tar.gz
+sha1 61388047329bf9561bad8888d061b0948e7e775c batman-adv-2019.5.tar.gz
 
 # Hash for license files
 sha256 cecbf53d1148e13256ac29f8b900655b7fc8dc12d59939a95bc2323ea1747025 LICENSES/preferred/GPL-2.0
