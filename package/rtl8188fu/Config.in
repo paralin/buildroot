@@ -1,0 +1,10 @@
+comment "rtl8188fu needs a Linux kernel to be built"
+	depends on !BR2_LINUX_KERNEL
+
+config BR2_PACKAGE_RTL8188FU
+	bool "rtl8188fu"
+	depends on BR2_LINUX_KERNEL
+	help
+	  rtl8188fu wifi driver
+
+	  https://github.com/ulli-kroll/rtl8188fu
