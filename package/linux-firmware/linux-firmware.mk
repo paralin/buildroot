@@ -4,9 +4,10 @@
 #
 ################################################################################
 
-LINUX_FIRMWARE_VERSION = 20201022
-LINUX_FIRMWARE_SITE = http://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
-LINUX_FIRMWARE_SITE_METHOD = git
+LINUX_FIRMWARE_VERSION = 20201218
+LINUX_FIRMWARE_SITE = https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/snapshot
+# LINUX_FIRMWARE_SITE = http://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+# LINUX_FIRMWARE_SITE_METHOD = git
 LINUX_FIRMWARE_INSTALL_IMAGES = YES
 
 LINUX_FIRMWARE_CPE_ID_VENDOR = kernel
@@ -25,6 +26,11 @@ endif
 ifeq ($(BR2_PACKAGE_LINUX_FIRMWARE_I915),y)
 LINUX_FIRMWARE_DIRS += i915
 LINUX_FIRMWARE_ALL_LICENSE_FILES += LICENSE.i915
+endif
+
+ifeq ($(BR2_PACKAGE_LINUX_FIRMWARE_NVIDIA),y)
+LINUX_FIRMWARE_DIRS += nvidia
+LINUX_FIRMWARE_ALL_LICENSE_FILES += LICENCE.nvidia
 endif
 
 ifeq ($(BR2_PACKAGE_LINUX_FIRMWARE_RADEON),y)
@@ -528,6 +534,10 @@ LINUX_FIRMWARE_FILES += \
 	qed/qed_init_values_zipped-*.bin
 # No license file; the license is in the file WHENCE
 # which is installed unconditionally
+endif
+
+ifeq ($(BR2_PACKAGE_LINUX_FIRMWARE_ROCKCHIP_DPTX),y)
+LINUX_FIRMWARE_FILES += rockchip/dptx.bin
 endif
 
 ifeq ($(BR2_PACKAGE_LINUX_FIRMWARE_RTL_8169),y)

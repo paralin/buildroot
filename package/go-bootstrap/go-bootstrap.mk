@@ -4,9 +4,11 @@
 #
 ################################################################################
 
-GO_BOOTSTRAP_VERSION = 1.4.3
-GO_BOOTSTRAP_SITE = https://storage.googleapis.com/golang
-GO_BOOTSTRAP_SOURCE = go$(GO_BOOTSTRAP_VERSION).src.tar.gz
+# Use last C-based Go compiler: v1.4.x
+# See https://golang.org/doc/install/source#bootstrapFromSource
+GO_BOOTSTRAP_VERSION = 1.4-bootstrap-20171003
+GO_BOOTSTRAP_SITE = https://dl.google.com/go
+GO_BOOTSTRAP_SOURCE = go$(GO_BOOTSTRAP_VERSION).tar.gz
 
 GO_BOOTSTRAP_LICENSE = BSD-3-Clause
 GO_BOOTSTRAP_LICENSE_FILES = LICENSE
@@ -17,7 +19,13 @@ GO_BOOTSTRAP_LICENSE_FILES = LICENSE
 # host-go-bootstrap.
 HOST_GO_BOOTSTRAP_DEPENDENCIES = toolchain
 
+# If we do not support this architecture with go-bootstrap, depend on the host
+# Go compiler to bootstrap the host-go compiler instead.
+ifeq ($(BR2_PACKAGE_HOST_GO_BOOTSTRAP_ARCH_SUPPORTS),y)
 HOST_GO_BOOTSTRAP_ROOT = $(HOST_DIR)/lib/go-$(GO_BOOTSTRAP_VERSION)
+else
+HOST_GO_BOOTSTRAP_ROOT = /usr/lib/go
+endif
 
 # The go build system is not compatable with ccache, so use HOSTCC_NOCCACHE
 # here.  See https://github.com/golang/go/issues/11685.

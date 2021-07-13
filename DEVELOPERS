@@ -1121,6 +1121,8 @@ F:	package/python-sip/
 F:	package/uhd/
 
 N:	Heiko Thiery <heiko.thiery@gmail.com>
+F:	board/kontron/pitx-imx8m/
+F:	configs/kontron_pitx_imx8m_defconfig
 F:	package/altera-stapl/
 F:	package/ipmitool/
 F:	package/libnetconf2/
@@ -1985,9 +1987,12 @@ F:	board/intel/galileo/
 F:	configs/galileo_defconfig
 
 N:	Nicolas Carrier <nicolas.carrier@orolia.com>
+F:	package/bmap-tools/
 F:	package/php-xdebug/
 F:	package/python-augeas/
+F:	support/testing/tests/package/sample_bmap_tools.sh
 F:	support/testing/tests/package/sample_python_augeas.py
+F:	support/testing/tests/package/test_bmap_tools.py
 F:	support/testing/tests/package/test_python_augeas.py
 
 N:	Nicolas Cavallari <nicolas.cavallari@green-communications.fr>
@@ -2638,6 +2643,7 @@ F:	configs/stm32mp157c_dk2_defconfig
 F:	package/android-tools/
 F:	package/b43-firmware/
 F:	package/b43-fwcutter/
+F:	package/bmap-tools/
 F:	package/c-periphery/
 F:	package/cdrkit/
 F:	package/cifs-utils/
